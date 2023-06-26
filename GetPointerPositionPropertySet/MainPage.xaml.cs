@@ -16,6 +16,8 @@ namespace GetPointerPositionPropertySet
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private CompositionPropertySet boxContainerPropertySet;
+        private ExpressionAnimation animation;
         public MainPage()
         {
             this.InitializeComponent();
@@ -25,12 +27,12 @@ namespace GetPointerPositionPropertySet
         {
             ElementCompositionPreview.SetIsTranslationEnabled(Box, true);
             var boxCompositor = ElementCompositionPreview.GetElementVisual(Box).Compositor;
-            var rectPointerState = ElementCompositionPreview.GetPointerPositionPropertySet(BoxContainer);
+            boxContainerPropertySet = ElementCompositionPreview.GetPointerPositionPropertySet(BoxContainer);
 
-            var anim = boxCompositor.CreateExpressionAnimation("hover.Position.Y");
-            anim.SetReferenceParameter("hover", rectPointerState);
-            anim.Target = "Translation.Y";
-            Box.StartAnimation(anim);
+            animation = boxCompositor.CreateExpressionAnimation("hover.Position.Y");
+            animation.SetReferenceParameter("hover", boxContainerPropertySet);
+            animation.Target = "Translation.Y";
+            Box.StartAnimation(animation);
         }
     }
 }
