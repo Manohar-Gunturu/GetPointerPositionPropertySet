@@ -26,9 +26,11 @@ namespace GetPointerPositionPropertySet
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
             ElementCompositionPreview.SetIsTranslationEnabled(Box, true);
-            var boxCompositor = ElementCompositionPreview.GetElementVisual(Box).Compositor;
+
+            // On Win10 change GetPointerPositionPropertySet(BoxContainer) to GetPointerPositionPropertySet(nvSample) otherwise animation doesn't work
             boxContainerPropertySet = ElementCompositionPreview.GetPointerPositionPropertySet(BoxContainer);
 
+            var boxCompositor = ElementCompositionPreview.GetElementVisual(Box).Compositor;
             animation = boxCompositor.CreateExpressionAnimation("hover.Position.Y");
             animation.SetReferenceParameter("hover", boxContainerPropertySet);
             animation.Target = "Translation.Y";
