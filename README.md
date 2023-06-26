@@ -1,6 +1,6 @@
 # GetPointerPositionPropertySet
 
-Animation doesn't work on win10 when NavigationView menu is visible, i.e:
+Animation(Green box follows the mouse) doesn't work on win10 when NavigationView menu is visible, i.e:
 <img width="763" alt="image" src="https://github.com/Manohar-Gunturu/GetPointerPositionPropertySet/assets/6416138/5975a4d0-84b2-405c-b910-21f76996fcdc">
 
 Collapse the menu completely by downsizing the window, i.e:
