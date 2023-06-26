@@ -16,16 +16,9 @@ namespace GetPointerPositionPropertySet
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private ContainerVisual _container;
-        private Compositor _compositor;
-        private Visual _tiltVisual;
-        private CompositionPropertySet _hoverPositionPropertySet;
-
         public MainPage()
         {
             this.InitializeComponent();
-            //_container = _compositor.CreateContainerVisual();
-            //ElementCompositionPreview.SetElementChildVisual(root, _container);
         }
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
